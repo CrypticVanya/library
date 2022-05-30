@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+    flex: 1;
+    display: flex;
+    max-height: 75px;
+}
+
+.left-nav {
+    flex: 1;
+    display: flex;
+    background: green;
+}
+
+
+.right-nav {
+    flex: 1;
+    display: flex;
+    background-color: blue;
+}
+
+
+.other-component {
+    display: flex;
+}
+
+.auth-component {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+.carousel-container {
+ 
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+
+
+}
+
+.slick-next {
+
+}
+
+.carousel-container-body {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.slick-list {
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+}
+
+
+
+.book-carousel-item {
+    display: none;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+
+.footer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    max-height: 50px;
+}
