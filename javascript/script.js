@@ -1,4 +1,5 @@
-let myLibrary = []
+    let myLibrary = []
+    
 
 
 function Book(title, author, pages, read) {
@@ -11,16 +12,35 @@ function Book(title, author, pages, read) {
     }
 }
 
-function addBookToLibrary() {
-
+function addBookToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read)
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet')
 
-console.log(theHobbit.info())
+
+function openForm() {
+    document.getElementById('popUpForm').style.display = 'block'
+}
+
+function closeForm() {
+    document.getElementById('popUpForm').style.display = 'none'
+}
 
 
+const btn = document.querySelector('.openButton')
+btn.addEventListener('click', () => {
+    openForm()
+})
 
+
+const cancelBtn = document.querySelector('.btn-cancel')
+cancelBtn.addEventListener('click', () => {
+    closeForm()
+})
+
+
+/*
 
 let slideIndex = 1
 showSlides(slideIndex)
@@ -46,3 +66,9 @@ function showSlides(n) {
     }
     slides[slideIndex-1].style.display = 'block'
 }
+
+*/
+
+
+
+

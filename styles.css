@@ -84,7 +84,7 @@ li {
 
 
 .book-carousel-item {
-    display: none;
+    display: ;
 }
 
 .fade {
@@ -101,3 +101,18 @@ li {
     background-color: green;
     max-height: 50px;
 }
+
+.bookPopUp {
+    position: relative;
+    text-align: center;
+    background-color: red;
+}
+
+.formPopUp {
+    display: none;
+    position: fixed;
+    transform: translate(-50%, 5%);
+    border: 1px;
+    background-color: red;
+}
+
