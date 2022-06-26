@@ -1,12 +1,11 @@
 
-function Book(title, author, pages) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.info = function() {
-        return `${title} by ${author}, ${pages},` 
-    }
+
+const book = (title, author, pages) => {
+    const info = () => console.log(`${title} by ${author}, ${pages},`);
+    return {title, author, pages}
 }
+
+
 
 
 
@@ -14,36 +13,41 @@ function Library() {
     this.book = []
 
     this.addBook = function(book) {
-    this.book.push(book)
+        this.book.push(book)
     }
 }
 
-
-const userEntry = new Book('lol', 'lol', 'lol')
-
-const library = new Library() 
-
-library.addBook(userEntry)
+const library = new Library()
 
 
-
-function displayOnScreen() {
-    for(let i = 0; 1 < library.book.length; i++) {
+function displayOnScreen(book) {
         const carousel = document.querySelector('.carousel-container')
-        const title = document.createElement('h1')
+        const title = document.createElement('div')
         const author = document.createElement('p')
         const pages = document.createElement('p')
-        let book_title = library.book[i].title
-        let book_author = library.book[i].author
-        let book_pages = library.book[i].pages
-        title.textContent = book_title
-        author.textContent = book_author
-        pages.textContent = book_pages
+        title.textContent = book.title
+        author.textContent = book.author
+        pages.textContent = book.pages
         carousel.appendChild(title)
         carousel.appendChild(author)
         carousel.appendChild(pages)
 }
-}
+
+
+
+const sendBtn = document.querySelector('.lol')
+sendBtn.addEventListener('click', function getTarget(e) {
+    e.preventDefault()
+    const title = document.getElementById('title').value
+    const author = document.getElementById('author').value
+    const pages = document.getElementById('pages').value
+    userEntryBook = book(title,author,pages)
+    library.addBook(userEntryBook)
+    displayOnScreen(userEntryBook)
+})
+
+
+
 
 
 
@@ -67,17 +71,4 @@ const cancelBtn = document.querySelector('.btn-cancel')
 cancelBtn.addEventListener('click', () => {
     closeForm()
 })
-
-const sendBtn = document.querySelector('.lol')
-sendBtn.addEventListener('click', function getTarget(e) {
-    e.preventDefault()
-    const userTitle = document.getElementById('title').value
-    const userAuthor = document.getElementById('author').value
-    const userPages = document.getElementById('pages').value
-    const newBookEntry = new Book(userTitle, userAuthor, userPages)
-    library.addBook(newBookEntry)
-    displayOnScreen()
-})
-
-
 
