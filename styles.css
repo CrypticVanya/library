@@ -1,8 +1,19 @@
+
+:root {
+    --first-color:#defcf9;
+    --second-color: #cadefc;
+    --third-color: #c3bef0;
+    --fourth-color: #c1d4f0;
+}
+
+
+
 body {
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    
 }
 
 .header {
@@ -14,19 +25,28 @@ body {
 .left-nav {
     flex: 1;
     display: flex;
-    background: green;
-}
-
-
-.right-nav {
-    flex: 1;
-    display: flex;
-    background-color: blue;
+    justify-content: center;
+    align-items: center;
+    background: #defcf9;
 }
 
 
 .other-component {
     display: flex;
+    gap:32px;
+}
+
+.right-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#defcf9;
+}
+
+
+.auth-component {
+    gap: 32px;
 }
 
 .auth-component {
@@ -63,9 +83,6 @@ li {
 
 }
 
-.slick-next {
-
-}
 
 .carousel-container-body {
     flex: 1;
@@ -83,9 +100,7 @@ li {
 
 
 
-.book-carousel-item {
-    display: ;
-}
+
 
 .fade {
     animation-name: fade;
@@ -98,21 +113,21 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    background-color: #cca8e9;
     max-height: 50px;
+    gap: 8px;
 }
 
 .bookPopUp {
     position: relative;
     text-align: center;
-    background-color: red;
+    background-color: var(--fourth-color);
 }
 
 .formPopUp {
     display: none;
     position: fixed;
     transform: translate(-50%, 5%);
-    border: 1px;
-    background-color: red;
+    border: solid 1px black;
+    background-color: var(--fourth-color);
 }
-
