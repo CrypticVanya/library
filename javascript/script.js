@@ -6,9 +6,6 @@ const book = (title, author, pages) => {
 }
 
 
-
-
-
 function Library() {
     this.book = []
 
@@ -21,16 +18,29 @@ const library = new Library()
 
 
 function displayOnScreen(book) {
-        const carousel = document.querySelector('.carousel-container')
+        const bookInv = document.querySelector('.bookInv')
+        const card = document.createElement('div')
         const title = document.createElement('div')
-        const author = document.createElement('p')
-        const pages = document.createElement('p')
+        const author = document.createElement('div')
+        const pages = document.createElement('div')
+        const btn = document.createElement('button')
         title.textContent = book.title
         author.textContent = book.author
         pages.textContent = book.pages
-        carousel.appendChild(title)
-        carousel.appendChild(author)
-        carousel.appendChild(pages)
+        btn.textContent = 'Delete'
+        bookInv.appendChild(card)
+        card.setAttribute('id', 'card')
+        card.appendChild(title)
+        card.appendChild(author)
+        card.appendChild(pages)
+        card.appendChild(btn)
+        btn.setAttribute('class', 'deleteButton')
+
+
+        const cancelBtn = document.querySelector('.deleteButton')
+        cancelBtn.addEventListener('click', () => {
+        card.remove()
+        })
 }
 
 
@@ -47,28 +57,27 @@ sendBtn.addEventListener('click', function getTarget(e) {
 })
 
 
+//factory function to make an invisible form pop up and ask for the info
 
+const Formatter = (function() {
 
+    const writeToDom = (selector, message) => {
+        document.getElementById(selector).style.display = message
+    }
 
+    const btn = document.querySelector('.openButton')
+    btn.addEventListener('click', () => {
+        Formatter.writeToDom('popUpForm', 'block')
+    })
 
-//Code to make an invisible form pop up and ask for the info
+    const cancelBtn = document.querySelector('.btn-cancel')
+    cancelBtn.addEventListener('click', () => {
+    Formatter.writeToDom('popUpForm', 'none')
+    })
 
-function openForm() {
-    document.getElementById('popUpForm').style.display = 'block'
-}
+    return {
+        writeToDom,
+    }
 
-function closeForm() {
-    document.getElementById('popUpForm').style.display = 'none'
-}
-
-
-const btn = document.querySelector('.openButton')
-btn.addEventListener('click', () => {
-    openForm()
-})
-
-const cancelBtn = document.querySelector('.btn-cancel')
-cancelBtn.addEventListener('click', () => {
-    closeForm()
-})
+})();
 
