@@ -33,25 +33,34 @@ function displayOnScreen(book) {
         const author = document.createElement('div')
         const pages = document.createElement('div')
         const readBtn = document.createElement('button')
+        const deleteBtn = document.createElement('button')
         readBtn.classList.add('read-btn')
-        title.textContent = book.title
-        author.textContent = book.author
-        pages.textContent = book.pages
+        deleteBtn.classList.add('delete-btn')
+        title.textContent = `Title: ${book.title}`
+        author.textContent = `Author: ${book.author}`
+        pages.textContent = `Pages: ${book.pages}`
         readBtn.textContent = book.status
+        deleteBtn.textContent = 'Delete'
         readBtn.onclick = toggleRead
-
+        deleteBtn.onclick = deleteBook
         bookInv.appendChild(card)
         card.setAttribute('id', 'card')
         card.appendChild(title)
         card.appendChild(author)
         card.appendChild(pages)
         card.appendChild(readBtn)
+        card.appendChild(deleteBtn)
     
 }
 
 const toggleRead = (e) => {
     if (e.currentTarget.textContent == 'Pending') e.currentTarget.textContent = 'Read'
     else e.currentTarget.textContent = 'Pending'
+}
+
+function deleteBook() {
+    var parent = this.parentNode
+    parent.parentNode.removeChild(parent)
 }
 
 const sendBtn = document.querySelector('.lol')
