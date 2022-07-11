@@ -1,8 +1,10 @@
 
 
-const book = (title, author, pages) => {
-    const info = () => console.log(`${title} by ${author}, ${pages},`);
-    return {title, author, pages}
+
+
+const book = (title, author, pages, status) => {
+    const info = () => console.log(`${title} by ${author}, ${pages}, ${status}`);
+    return {title, author, pages, status}
 }
 
 
@@ -12,9 +14,16 @@ function Library() {
     this.addBook = function(book) {
         this.book.push(book)
     }
+
+    this.getBook = function(title) {
+        return this.book.find((book) => book.title === title)
+    }
 }
 
+
+
 const library = new Library()
+
 
 
 function displayOnScreen(book) {
@@ -23,27 +32,27 @@ function displayOnScreen(book) {
         const title = document.createElement('div')
         const author = document.createElement('div')
         const pages = document.createElement('div')
-        const btn = document.createElement('button')
+        const readBtn = document.createElement('button')
+        readBtn.classList.add('read-btn')
         title.textContent = book.title
         author.textContent = book.author
         pages.textContent = book.pages
-        btn.textContent = 'Delete'
+        readBtn.textContent = book.status
+        readBtn.onclick = toggleRead
+
         bookInv.appendChild(card)
         card.setAttribute('id', 'card')
         card.appendChild(title)
         card.appendChild(author)
         card.appendChild(pages)
-        card.appendChild(btn)
-        btn.setAttribute('class', 'deleteButton')
-
-
-        const cancelBtn = document.querySelector('.deleteButton')
-        cancelBtn.addEventListener('click', () => {
-        card.remove()
-        })
+        card.appendChild(readBtn)
+    
 }
 
-
+const toggleRead = (e) => {
+    if (e.currentTarget.textContent == 'Pending') e.currentTarget.textContent = 'Read'
+    else e.currentTarget.textContent = 'Pending'
+}
 
 const sendBtn = document.querySelector('.lol')
 sendBtn.addEventListener('click', function getTarget(e) {
@@ -51,7 +60,8 @@ sendBtn.addEventListener('click', function getTarget(e) {
     const title = document.getElementById('title').value
     const author = document.getElementById('author').value
     const pages = document.getElementById('pages').value
-    userEntryBook = book(title,author,pages)
+    const status = document.getElementById('status').value
+    userEntryBook = book(title,author,pages, status)
     library.addBook(userEntryBook)
     displayOnScreen(userEntryBook)
 })

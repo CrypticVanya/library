@@ -103,15 +103,13 @@
                                     <label for="pages">pages</label>
                                     <input type="text" id="pages" placeholder="Place you book" name="pages" required>
                                     <div class="progress">
-                                        <label for="progress">Progress</label>
-                                        <p>
-                                        <input type="radio" name="yes_no">
-                                        yes
-                                        </p>
-                                        
-                                        <input type="radio" name="yes_no" checked>
-                                        no
-                                        </p>
+                                        <label for="status">Have you read it?</label>
+                                        <select name="status" id="status">
+                                        <option value="Read">Read</option>
+                                        <option value="Pending">Pending</option>
+                                        </select>
+                                    </div>
+                                    <div>
                                         <button type="submit" class="lol">Submit</button>
                                         <button type="button" class="btn-cancel">Cancel</button>
 
