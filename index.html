@@ -83,25 +83,24 @@
     <div class="container">
         <div class="sideBar">
                 <p>
-                    <a href="#">Books</a>
+                    <a href="#">Personal Library</a>
                 </p>
                 <div class="pop-form">
-                    <h2>pop form</h2>
-                    <p>click the button</p>
+                    <h2>Add Book</h2>
                     <div class="openBtn">
                         <button class="openButton">
-                            open
+                            <img src="./img/plus.svg" alt="Image Heree">
                         </button>
                         <div class="bookPopUp">
                             <div class="formPopUp" id="popUpForm">
-                                <form class="formContainer">
+                                <form action="" class="formContainer">
                                     <p><b>Please, Enter Book</b></p>
                                     <label for="title">Title</label>
                                     <input type="text" id="title" placeholder="Place you book" name="title" required>
                                     <label for="author">Author</label>
-                                    <input type="text" id="author" placeholder="Place you book" name="author" required>
+                                    <input type="text" id="author" placeholder="Place you book" name="author">
                                     <label for="pages">pages</label>
-                                    <input type="text" id="pages" placeholder="Place you book" name="pages" required>
+                                    <input type="number" id="pages" placeholder="Place you book" name="pages">
                                     <div class="progress">
                                         <label for="status">Have you read it?</label>
                                         <select name="status" id="status">
@@ -112,11 +111,7 @@
                                     <div>
                                         <button type="submit" class="lol">Submit</button>
                                         <button type="button" class="btn-cancel">Cancel</button>
-
-                                    
-                                    </div>
-
-                            
+                                    </div>                            
                                 </form>
                             </div>
                         </div>

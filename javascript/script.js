@@ -50,11 +50,15 @@ function displayOnScreen(book) {
         card.appendChild(pages)
         card.appendChild(readBtn)
         card.appendChild(deleteBtn)
+
     
 }
 
 const toggleRead = (e) => {
-    if (e.currentTarget.textContent == 'Pending') e.currentTarget.textContent = 'Read'
+
+    if (e.currentTarget.textContent == 'Pending') {
+        e.currentTarget.textContent = 'Read'
+    }
     else e.currentTarget.textContent = 'Pending'
 }
 
